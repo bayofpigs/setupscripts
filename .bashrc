@@ -248,12 +248,12 @@ source ~/.rvm/scripts/rvm
 source ~/.bashrc_custom
 
 ## Define ROS enviornment variables
-source /opt/ros/hydro/setup.bash
+# source /opt/ros/hydro/setup.bash
 
 ## Define ROS_PACKAGE_PATH
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/mike/catkin_ws
+# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/mike/catkin_ws
 
 ## Print out the motto
-echo Be bold. Move Fast.
+# echo Be bold. Move Fast.
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
