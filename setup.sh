@@ -35,7 +35,7 @@ wget http://download.redis.io/releases/redis-2.8.12.tar.gz
 tar xzf redis-2.8.12.tar.gz
 cd redis-2.8.12
 make
-make install
+sudo make install
 cd ..
 
 # Mongodb
@@ -56,7 +56,7 @@ wget http://nginx.org/download/nginx-1.7.0.tar.gz
 tar xzf nginx-1.7.0.tar.gz
 cd nginx-1.7.0
 ./configure --prefix=/opt/nginx --user=www-data --group=www-data --with-http_ssl_module --add-module=/opt/nginx-upload-progress-module --conf-path=/etc/nginx/nginx.conf --with-http_realip_module --with-file-aio --with-http_flv_module --with-http_mp4_module --with-http_stub_status_module --with-ipv6
-make && make install
+make && sudo make install
 sudo ln -s /opt/nginx/sbin/nginx /usr/local/bin
 cd ..
 # Add configuration file for the service
