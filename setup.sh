@@ -27,7 +27,7 @@ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 # Node packages
 sudo npm install -g nodemon
 sudo npm install -g express
-sudo npm install -g express-cli
+sudo npm install -g express-generator
 sudo npm install -g grunt-cli
 
 # Redis
@@ -50,8 +50,9 @@ sudo apt-get install mongodb-org
 sudo apt-get install libpcre3-dev libssl-dev
 
 # Make an nginx user (www-data)
-sudo adduser --system --no-create-home --disable-login --disabled-password --group www-data
-sudo mkdir /etc/nginx
+sudo adduser --system --no-create-home --disabled-login --disabled-password --group www-data
+# Fetch modules
+git clone https://github.com/masterzen/nginx-upload-progress-module/tree/master /opt
 wget http://nginx.org/download/nginx-1.7.0.tar.gz
 tar xzf nginx-1.7.0.tar.gz
 cd nginx-1.7.0
