@@ -31,12 +31,18 @@ sudo npm install -g express-generator
 sudo npm install -g grunt-cli
 
 # Redis
+# Add a redis user
+sudo adduser --system --no-create-home --disabled-login --disabled-password --group redis
 wget http://download.redis.io/releases/redis-2.8.12.tar.gz
 tar xzf redis-2.8.12.tar.gz
 cd redis-2.8.12
 make
 sudo make install
+sudo mkdir /etc/redis
+# Copy redis configuration
+sudo cp redis.conf /etc/redis
 cd ..
+sudo cp redis.conf /etc/init/
 
 # Mongodb
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
