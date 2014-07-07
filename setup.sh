@@ -52,7 +52,7 @@ sudo apt-get install libpcre3-dev libssl-dev
 # Make an nginx user (www-data)
 sudo adduser --system --no-create-home --disabled-login --disabled-password --group www-data
 # Fetch modules
-git clone https://github.com/masterzen/nginx-upload-progress-module/tree/master /opt
+sudo git clone https://github.com/masterzen/nginx-upload-progress-module/ /opt/nginx-upload-progress-module
 wget http://nginx.org/download/nginx-1.7.0.tar.gz
 tar xzf nginx-1.7.0.tar.gz
 cd nginx-1.7.0
@@ -62,6 +62,9 @@ sudo ln -s /opt/nginx/sbin/nginx /usr/local/bin
 cd ..
 # Add configuration file for the service
 sudo cp nginx.conf /etc/init/nginx.conf
+# Set up permissions
+sudo chown -R www-data:www-data /opt/nginx
+sudo chown -R www-data:www-data /etc/nginx
 
 # Ruby, Ruby Version Manager, RubyGems, Rails
 \curl -L https://get.rvm.io | bash -s stable
