@@ -253,7 +253,4 @@ source ~/.bashrc_custom
 ## Define ROS_PACKAGE_PATH
 # export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/mike/catkin_ws
 
-## Print out the motto
-# echo Be bold. Move Fast.
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH
