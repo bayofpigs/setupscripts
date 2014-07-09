@@ -254,3 +254,5 @@ source ~/.bashrc_custom
 # export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/mike/catkin_ws
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH
+PATH=$PATH:. # Add current directory to PATH
+export PATH=$HOME/.node/bin:$PATH # Add local node to path

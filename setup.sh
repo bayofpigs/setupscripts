@@ -24,6 +24,9 @@ sudo apt-get install nodejs
 
 curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 
+# npm home
+echo prefix = ~/.node >> ~/.npmrc
+
 # Node packages
 sudo npm install -g nodemon
 sudo npm install -g express
@@ -31,20 +34,26 @@ sudo npm install -g express-generator
 sudo npm install -g grunt-cli
 sudo npm install -g bower
 sudo npm install -g forever
+sudo npm install -g yeoman
 
 # Redis
 # Add a redis user
-sudo adduser --system --no-create-home --disabled-login --disabled-password --group redis
+# sudo adduser --system --no-create-home --disabled-login --disabled-password --group redis
 wget http://download.redis.io/releases/redis-2.8.12.tar.gz
 tar xzf redis-2.8.12.tar.gz
 cd redis-2.8.12
 make
 sudo make install
 sudo mkdir /etc/redis
-# Copy redis configuration
-sudo cp redis.conf /etc/redis
+# Set up Redis configuration properly: from redis quickstart guide
+sudo mkdir /etc/redis # Configuration
+sudo mkdir /var/redis # Logging
+sudo cp utils/redis_init_script /etc/init.d/redis_6379 # 6379 is the port
+sudo cp redis.conf /etc/redis/6379.conf
+sudo mkdir /var/redis/6379
 cd ..
-sudo cp redis.conf /etc/init/
+sudo update-rc.d redis_6379 defaults
+sudo cp redis.conf /etc/redis/6379.conf # Modified redis.conf
 
 # Mongodb
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
@@ -107,3 +116,6 @@ ln -sb setupscripts/.vimrc .
 if [ -f ~/.bashrc_custom ]; then
   touch .bashrc_custom
 fi
+
+# Fix permissions
+sudo chown -R `whoami` ~/
